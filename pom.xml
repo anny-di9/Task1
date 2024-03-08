@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemalocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelversion>4.0.0</modelversion>
+
+    <groupid>org.example</groupid>
+    <artifactid>Task1</artifactid>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>Parent Project</name>
+
+    <modules>
+        <module>api-tests</module>
+        <module>ui-tests</module>
+    </modules>
+
+
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceencoding>UTF-8</project.build.sourceencoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <junit.jupiter.version>5.9.1</junit.jupiter.version>
+        <junit.platform.version>1.9.1</junit.platform.version>
+    </properties>
+
+    <dependency>
+        <groupid>org.junit.jupiter</groupid>
+        <artifactid>junit-jupiter-engine</artifactid>
+        <version>${junit.jupiter.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>org.junit.jupiter</groupid>
+        <artifactid>junit-jupiter-api</artifactid>
+        <version>${junit.jupiter.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>org.junit.jupiter</groupid>
+        <artifactid>junit-jupiter-params</artifactid>
+        <version>${junit.jupiter.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>org.junit.platform</groupid>
+        <artifactid>junit-platform-suite</artifactid>
+        <version>${junit.platform.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>org.apache.maven.plugins</groupid>
+        <artifactid>maven-surefire-plugin</artifactid>
+        <version>2.22.2</version>
+    </dependency>
+    <dependency>
+        <groupid>io.qameta.allure</groupid>
+        <artifactid>allure-junit5</artifactid>
+        <version>2.19.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>io.rest-assured</groupid>
+        <artifactid>rest-assured</artifactid>
+        <version>5.1.1</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>io.qameta.allure</groupid>
+        <artifactid>allure-rest-assured</artifactid>
+        <version>2.19.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>com.fasterxml.jackson.core</groupid>
+        <artifactid>jackson-databind</artifactid>
+        <version>2.13.4</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>org.testcontainers</groupid>
+        <artifactid>selenium</artifactid>
+        <version>1.17.3</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>com.codeborne</groupid>
+        <artifactid>selenide</artifactid>
+        <version>6.5.4</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupid>io.qameta.allure</groupid>
+        <artifactid>allure-selenide</artifactid>
+        <version>2.19.0</version>
+        <scope>test</scope>
+    </dependency>
+
+</project>
