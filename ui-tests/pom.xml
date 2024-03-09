@@ -5,13 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <groupId>org.example</groupId>
     <artifactId>ui-test</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>ui-tests</name>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -21,5 +20,56 @@
         <artifactId>Parent Project</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <!--запуск для всех тестов-->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+        <configuration>
+            <includes>
+                <include>**/*Test.java</include>
+            </includes>
+        </configuration>
+    </plugin>
+
+
+    <!--запуск только для тестов из модуля ui-tests-->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+        <configuration>
+            <includes>
+                <include>**/ui-tests/**/</include>
+            </includes>
+        </configuration>
+    </plugin>
+
+    <!--запуск только для smoke-тестов обоих модулей по тегу 'smoke' -->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+        <configuration>
+            <includes>
+                <include>**/Test.java</include>
+            </includes>
+            <groups>smoke</groups>
+        </configuration>
+    </plugin>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                    <!-- настройка -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

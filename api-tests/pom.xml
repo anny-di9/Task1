@@ -10,7 +10,7 @@
     <name>api-tests</name>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -20,5 +20,55 @@
         <artifactId>Parent Project</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <!--для всех тестов-->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+        <configuration>
+            <includes>
+                <include>**/*Test.java</include>
+            </includes>
+        </configuration>
+    </plugin>
+
+    <!--запуск только для тестов из модуля api-tests-->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+        <configuration>
+            <includes>
+                <include>**/api-tests/**/</include>
+            </includes>
+        </configuration>
+    </plugin>
+
+    <!--запуск только для smoke-тестов обоих модулей по тегу 'smoke' -->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+        <configuration>
+            <includes>
+                <include>**/Test.java</include>
+            </includes>
+            <groups>smoke</groups>
+        </configuration>
+    </plugin>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                    <!-- настройка -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     
 </project>
